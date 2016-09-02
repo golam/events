@@ -10,27 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902001643) do
+ActiveRecord::Schema.define(version: 20160902033717) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "owner_id",                  null: false
-    t.string   "name",        limit: 50,    null: false
-    t.text     "description", limit: 65535
-    t.datetime "start_date",                null: false
-    t.datetime "end_date",                  null: false
-    t.string   "picture",     limit: 200,   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name"
+    t.string   "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "picture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "User_id"
+    t.index ["User_id"], name: "index_events_on_User_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "first_name",   limit: 50, null: false
-    t.string   "last_name",    limit: 50
-    t.string   "email",        limit: 50, null: false
-    t.datetime "sign_up_date",            null: false
-    t.string   "password",     limit: 50, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "sign_up_date"
+    t.string   "password"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
